@@ -52,7 +52,7 @@ public class Playground {
     private final Executor codeExecutionQueue = Executors.newFixedThreadPool(1);
 
     public Playground() {
-        JFrame window = new JFrame("Wordy IDE");
+        JFrame window = new JFrame("Applu IDE");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         window.setSize(1000, screenSize.height);
 

@@ -58,7 +58,7 @@ public class EvaluationContext {
     }
 
     /**
-     * Receives notification about the progress of the Wordy interpreter as it executes a program.
+     * Receives notification about the progress of the Applu interpreter as it executes a program.
      */
     public interface Tracer {
         void traceNode(ASTNode astNode, EvaluationContext evaluationContext, Phase phase, Object result);

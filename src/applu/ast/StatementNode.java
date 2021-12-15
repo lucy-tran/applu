@@ -14,7 +14,7 @@ public abstract class StatementNode extends ASTNode {
     /**
      * Runs this statement against the given context.
      *
-     * Used to implement the Wordy interpreter.
+     * Used to implement the Applu interpreter.
      *
      * Reports to the evaluation context’s tracer (if present) when expression evaluation is starting,
      * and when it is complete.

@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import applu.ast.ASTNode;
 import applu.ast.ConstantNode;
 import applu.ast.VariableNode;
-import applu.compiler.AppluCompiler;
-import applu.compiler.AppluExecutable;
+// import applu.compiler.AppluCompiler;
+// import applu.compiler.AppluExecutable;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -118,12 +118,12 @@ public class CompilerTest {
 
     // ––––––– Helpers –––––––
 
-    private void assertExpressionCompilesTo(String expectedJavaCode, String wordyExpression) {
-        assertCompilationEquals(expectedJavaCode, parseExpression(wordyExpression));
+    private void assertExpressionCompilesTo(String expectedJavaCode, String appluExpression) {
+        assertCompilationEquals(expectedJavaCode, parseExpression(appluExpression));
     }
 
-    private void assertStatementCompilesTo(String expectedJavaCode, String wordyStatement) {
-        assertCompilationEquals(expectedJavaCode, parseStatement(wordyStatement));
+    private void assertStatementCompilesTo(String expectedJavaCode, String appluStatement) {
+        assertCompilationEquals(expectedJavaCode, parseStatement(appluStatement));
     }
 
     private void assertCompilationEquals(String expectedJavaCode, ASTNode ast) {

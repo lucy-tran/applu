@@ -9,11 +9,11 @@ import applu.ast.StatementNode;
  * @author Paul Cantrell
  */
 public class CompilationException extends RuntimeException {
-    public CompilationException(Exception e, StatementNode wordySource, String javaSource) {
+    public CompilationException(Exception e, StatementNode appluSource, String javaSource) {
         super(
             "Unable to compile Applu source code: " + e
                 + "\n━━━━━━━━━━ APPLU AST ━━━━━━━━━━━\n"
-                + wordySource.dump()
+                + appluSource.dump()
                 + "\n━━━━━━ COMPILED JAVA CODE ━━━━━━\n"
                 + javaSource
                 + "\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");

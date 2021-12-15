@@ -13,26 +13,28 @@ import net.openhft.compiler.CompilerUtils;
  */
 public class AppluCompiler {
     /**
-     * Translates the given Wordy program to Java source code. The emitted Java source code consists of
+     * Translates the given Applu program to Java source code. The emitted Java source code consists of
      * a class that:
      * <ul>
      * <li>has a nested class named `ExecutionContext` that contains properties for all the variables
-     * used in the Wordy program,
-     * <li>implements `WordyExecutable`,
+     * used in the Applu program,
+     * <li>implements Applu Executable`,
      * <li>and thus has a `createContext()` method you can use to pass variable values to and from the
-     * Wordy code, and
-     * <li>has a `run()` method you can use to execute the Wordy code.
+     * Applu code, and
+     * <li>has a `run()` method you can use to execute the Applu code.
      * </ul>
      * 
-     * This method is suitable for viewing the compiled Java source output. If you want to run the Wordy
+     * This method is suitable for viewing the compiled Java source output. If you want to run the Applu
+     * 
      * program, consider the other `compile()` method in this class.
      * 
-     * @param program              Parsed Wordy code. Use WordyParser.parseProgram() to translate Wordy
+     * @param program              Parsed Applu code. Use Applu Parser.parseProgram() to translate Applu
+     * 
      *                             source into an AST that you can pass to this method.
      * @param className            The name to use for the generated Java class.
      * @param contextInterfaceName The name of an interface the generated ExecutionContext should
      *                             implement. This interface declares getters and setters for any
-     *                             variables you need to pass to / from the Wordy code. You are
+     *                             variables you need to pass to / from the Applu code. You are
      *                             responsible for supplying this interface; this method does not
      *                             generate it.
      * @return The generated Java source code.
@@ -42,9 +44,9 @@ public class AppluCompiler {
         var out = new PrintWriter(compilerOutput);
         out.print(
             """
-            import wordy.compiler.WordyExecutable;
+            import applu.compiler.AppluExecutable;
 
-            public class %1$s implements WordyExecutable<%1$s.ExecutionContext> {
+            public class %1$s implements AppluExecutable<%1$s.ExecutionContext> {
                 public void run(ExecutionContext context) {
             """.formatted(className));
 
@@ -86,39 +88,47 @@ public class AppluCompiler {
     }
 
     /**
-     * Compiles Wordy code to Java, then compiles the Java to an executable class. To use this class to
-     * execute Wordy code:
+     * Compiles Applu code to Java, then compiles the Java to an executable class. To use this class to
+     * execute Applu code:
      * 
      * <pre>
      * interface MyContext {
-     *     void set_some_variable(double value);  // Will be input to Wordy code
+     *     void set_some_variable(double value);  // Will be input to Applu
+     *  code
      * 
-     *     double get_other_variable();           // Will be output from Wordy code
+     *     double get_other_variable();           // Will be output from Applu
+     *  code
      * }
      * 
-     * // Compile wordyCode to a class named Foo whose exec context implements MyContext
-     * var compiledProgram = WordyCompiler.compile(
-     *     WordyParser.parseProgram(wordyCode),
+     * // Compile Applu
+     * Code to a class named Foo whose exec context implements MyContext
+     * var compiledProgram = Applu
+     * Compiler.compile(
+     *     Applu
+     * Parser.parseProgram Applu
+     * Code),
      *     "Foo",
      *     MyContext.class);
      *
-     * // Pass the initial value of some_variable to the Wordy program
+     * // Pass the initial value of some_variable to the Applu
+     *  program
      * MyContext context = compiledProgram.createContext();
      * context.set_some_variable(whatever);
      * 
      * // Run the program
      * compiledProgram.run();
      * 
-     * // Retrieve the value of other_variable after the Wordy program completed
+     * // Retrieve the value of other_variable after the Applu
+     *  program completed
      * context.get_other_variable();
      * </pre>
      * 
-     * @param program                   Parsed Wordy code. Use WordyParser.parseProgram() to translate
-     *                                  Wordy source into an AST that you can pass to this method.
+     * @param program                   Parsed Applu code. Use Applu Parser.parseProgram() to translate
+     *                                  Applu source into an AST that you can pass to this method.
      * @param className                 The name to use for the generated Java class.
      * @param executionContextInterface An interface that declares getters and setters for any variables
-     *                                  you need to pass to / from the Wordy code.
-     * @return An object whose run() method is the compiled Wordy program.
+     *                                  you need to pass to / from the Applu code.
+     * @return An object whose run() method is the compiled Applu program.
      */
     public static <Context extends AppluExecutable.ExecutionContext> AppluExecutable<Context> compile(
         StatementNode program,

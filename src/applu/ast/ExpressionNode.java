@@ -14,7 +14,7 @@ public abstract class ExpressionNode extends ASTNode {
     /**
      * Evaluates this expression using the given variable values.
      * 
-     * Used to implement the Wordy interpreter.
+     * Used to implement the Applu interpreter.
      * 
      * Reports to the evaluation context’s tracer (if present) that expression evaluation is starting,
      * and reports the resulting value when evaluation is complete.

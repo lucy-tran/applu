@@ -11,7 +11,7 @@ import applu.ast.ConstantNode;
 import applu.ast.LoopExitNode;
 import applu.ast.LoopNode;
 import applu.ast.VariableNode;
-import applu.parser.ParseException;
+// import applu.parser.ParseException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static applu.parser.AppluParser.parseExpression;
