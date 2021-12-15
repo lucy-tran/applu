@@ -22,14 +22,14 @@
             "type": "java",
             "name": "Launch Playground",
             "request": "launch",
-            "mainClass": "wordy.demo.Playground",
+            "mainClass": "applu.demo.Playground",
             "vmArgs": "--illegal-access=permit"
         },
         {
             "type": "java",
             "name": "Launch ShaderUI",
             "request": "launch",
-            "mainClass": "wordy.demo.shader.ShaderUI",
+            "mainClass": "applu.demo.shader.ShaderUI",
             "vmArgs": "--illegal-access=permit"
         }
     ]
